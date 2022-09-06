@@ -1,0 +1,50 @@
+<mat-sidenav-container class="app-sidenav-container font hover" [dir]="dir">
+    <mat-sidenav #sidenav class="app-sidenav mat-elevation-z2" [opened]="!isScreenSmall()"
+      [mode]="isScreenSmall() ? 'over' : 'side'">
+        <div class="menuitem-container">
+            <mat-toolbar>
+                <div>
+                    <h1 class="center diminue">{{'systeme gestion absences' | uppercase}}</h1> 
+                </div>
+            </mat-toolbar>
+            <div class="sidebar-wrapper">
+              <mat-list>
+                <mat-list-item>
+                  <mat-icon>dashboard</mat-icon>
+                  <div mat-line>Dashboard</div>
+                </mat-list-item>
+                <mat-list-item routerLink="/agent">
+                  <mat-icon>person_add</mat-icon>
+                  <div mat-line>Gestion des agents</div>
+                </mat-list-item>
+                <mat-list-item>
+                  <mat-icon>group_add</mat-icon>
+                  <div mat-line>Gestion des profils</div>
+                </mat-list-item>
+                <mat-list-item>
+                  <mat-icon>calendar_today</mat-icon>
+                  <div mat-line>Gestion des jours fériers</div>
+                </mat-list-item>
+                <mat-list-item>
+                  <mat-icon>event</mat-icon>
+                  <div mat-line>Gestion des congés non déductibles</div>
+                </mat-list-item>
+                <mat-list-item>
+                  <mat-icon>note_add</mat-icon>
+                  <div mat-line>Gestion des demandes d'absences</div>
+                </mat-list-item>
+              </mat-list>
+            </div>
+        </div>
+        <div class="copyright-container">
+          <a href="https://www.cmu.com/" target="_blank"><span>Copyright &copy; ANACMU </span></a>
+          <div fxFlex></div>
+        </div>
+    </mat-sidenav>
+    <div class="app-sidenav-content">
+      <app-toolbar (toggleSidenav)="sidenav.toggle()" (toggleDir)="toggleDir()"></app-toolbar>
+      <div class="wrapper">
+        <router-outlet></router-outlet>
+      </div>
+    </div>  
+  </mat-sidenav-container>
